@@ -1,0 +1,57 @@
+/* Themes: dark is the default; html[data-mode="light"] and html[data-accent=...]
+   are set from popup.js (see applyAppearance). */
+:root {
+  --bg: #14181f;
+  --panel: #1c222c;
+  --text: #e8ebf0;
+  --muted: #8a93a3;
+  --border: #2a313d;
+  --deep: #0b0f14;
+  --accent: #00c2a8;
+  --accent-dim: #00a08a;
+  --on-accent: #0b0f14;
+  --danger: #e06c75;
+  --tier-free: #2ecc71;
+  --tier-ads: #58b7e8;
+  --tier-sub: #b98bf0;
+  --tier-rent: #f0a93b;
+  --tier-buy: #f0734b;
+  --tier-tv: #58b7e8;
+  --tier-stream: #b98bf0;
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, transparent);
+  --good-soft: color-mix(in srgb, var(--tier-free) 14%, transparent);
+  --danger-soft: color-mix(in srgb, var(--danger) 12%, transparent);
+  color-scheme: dark;
+}
+
+html[data-mode="light"] {
+  --bg: #f4f6f9;
+  --panel: #ffffff;
+  --text: #1a2230;
+  --muted: #5d6778;
+  --border: #d5dae3;
+  --deep: #e7ebf1;
+  --on-accent: #ffffff;
+  --danger: #c0392b;
+  --tier-free: #1a8f4c;
+  --tier-ads: #1f7fb5;
+  --tier-sub: #7b4fc0;
+  --tier-rent: #b87608;
+  --tier-buy: #c4502a;
+  --tier-tv: #1f7fb5;
+  --tier-stream: #7b4fc0;
+  color-scheme: light;
+}
+
+html[data-accent="blue"] { --accent: #4c8dff; --accent-dim: #3a75e0; }
+html[data-accent="violet"] { --accent: #9b7bff; --accent-dim: #8260e8; }
+html[data-accent="rose"] { --accent: #ff6b8b; --accent-dim: #e8506f; }
+html[data-accent="amber"] { --accent: #f0a93b; --accent-dim: #d8921f; }
+html[data-accent="green"] { --accent: #3ec46d; --accent-dim: #2ea85a; }
+html[data-mode="light"][data-accent="teal"] { --accent: #00897b; --accent-dim: #00695c; }
+html[data-mode="light"][data-accent="blue"] { --accent: #2f6fe0; --accent-dim: #2459b8; }
+html[data-mode="light"][data-accent="violet"] { --accent: #7a55e0; --accent-dim: #6240c2; }
+html[data-mode="light"][data-accent="rose"] { --accent: #d8305a; --accent-dim: #b82449; }
+html[data-mode="light"][data-accent="amber"] { --accent: #c77a00; --accent-dim: #a36300; }
+html[data-mode="light"][data-accent="green"] { --accent: #1a8f4c; --accent-dim: #12733b; }
+html[data-mode="light"][data-accent="amber"] { --on-accent: #ffffff; }

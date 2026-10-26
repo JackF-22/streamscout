@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>StreamScout</title>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="popup.css" />
+    <script src="theme.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>StreamScout</h1>
+      <div class="header-actions">
+        <button id="myServicesBtn" type="button" title="Choose the streaming services you subscribe to">My Services</button>
+        <button id="settingsBtn" title="Settings" aria-label="Settings">⚙</button>
+      </div>
+    </header>
+
+    <div id="setupNotice" class="notice hidden">
+      <p>Add your free TMDB API key to start searching.</p>
+      <button id="openSettings">Open settings</button>
+    </div>
+
+    <section id="servicesView" class="hidden">
+      <h2>My services</h2>
+      <p class="hint">Which services do you have? Tick them and we'll highlight what you can watch right now. Include live TV (cable, YouTube TV…) for sports. You can skip this and change it any time from the footer. Saved only on this device.</p>
+      <div id="serviceGrid" class="service-grid"></div>
+      <button type="button" id="servicesDone" class="primary-btn">Done</button>
+    </section>
+
+    <section id="settingsView" class="hidden">
+      <h2>Settings</h2>
+
+      <div class="field-label">Appearance</div>
+      <div class="seg" id="modeSeg">
+        <button type="button" data-mode="auto">Auto</button>
+        <button type="button" data-mode="light">Light</button>
+        <button type="button" data-mode="dark">Dark</button>
+      </div>
+
+      <div class="field-label">Accent color</div>
+      <div class="swatches" id="accentSwatches"></div>
+
+      <div class="field-label">Region</div>
+      <input id="regionInput" type="text" maxlength="2" placeholder="US" autocomplete="off" />
+      <p class="hint">2-letter country code (US, GB, CA, AU…). Streaming availability differs by country.</p>
+
+      <p class="hint"><a id="advancedLink" href="#">Advanced: use your own TMDB key →</a></p>
+      <button type="button" id="settingsDone" class="primary-btn">Done</button>
+    </section>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="movies" type="button">Movies &amp; TV</button>
+      <button class="tab" data-tab="sports" type="button">Sports</button>
+    </nav>
+
+    <section id="panel-movies" class="panel active">
+      <form id="searchForm">
+        <input
+          id="query"
+          type="text"
+          placeholder="Movie or show title…"
+          autocomplete="off"
+          autofocus
+        />
+        <button type="submit" id="searchBtn">Search</button>
+      </form>
+
+      <p class="hint">Results open the service directly when we can — otherwise the full watch page.</p>
+
+      <div id="status" class="status hidden"></div>
+      <div id="candidates" class="candidates hidden"></div>
+      <div id="results" class="results hidden"></div>
+
+      <footer>
+        Region: <span id="regionLabel">US</span> ·
+        <a id="changeRegion" href="#">change</a>
+      </footer>
+      <a class="tmdb-logo" href="https://www.themoviedb.org" target="_blank" rel="noopener" title="The Movie Database (TMDB)"><img src="../icons/tmdb-logo.svg" alt="TMDB" /></a>
+      <p class="attribution">
+        This product uses the <a href="https://www.themoviedb.org" target="_blank" rel="noopener">TMDB</a>
+        API but is not endorsed or certified by TMDB. Streaming availability data
+        provided by <a href="https://www.justwatch.com" target="_blank" rel="noopener">JustWatch</a>.
+      </p>
+    </section>
+
+    <section id="panel-sports" class="panel">
+      <form id="sportsForm">
+        <input
+          id="team"
+          type="text"
+          placeholder="Team name (e.g. Lakers, Arsenal, Duke)…"
+          autocomplete="off"
+        />
+        <button type="submit" id="sportsSearchBtn">Search</button>
+      </form>
+
+      <p class="hint">NFL, NBA, MLB, NHL, WNBA, MLS, Premier League and college football/basketball. Pin teams with ☆.</p>
+
+      <div id="favTeams" class="fav-row hidden"></div>
+      <div id="sportsStatus" class="status hidden"></div>
+      <div id="sportsCandidates" class="candidates hidden"></div>
+      <div id="sportsResults" class="results hidden"></div>
+
+      <footer>Schedules and broadcast data from ESPN · US listings only</footer>
+      <p class="attribution">Not affiliated with or endorsed by ESPN or any league.</p>
+    </section>
+
+    <script src="config.js"></script>
+    <script src="services.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
